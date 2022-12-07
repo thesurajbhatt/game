@@ -20,7 +20,19 @@
 # except:
 #     print("Not able to open")
 
+////
+print('Write String into your file : ') 
+print('Press \'END\' when you are done. ') 
+f = open("test.txt",'w') 
+while True:
+    line=input()
+    if line in ('END','end','End'):
+        break;
+    f.write(line) 
+    f.write('\n') 
+f.close()
 
+/////
 file=open('dummy1.txt','a')
 
 while(1):
@@ -123,7 +135,7 @@ del s1
 
 
 
-
+reverse
 ========================
 oglist = []
 length = 0
@@ -172,7 +184,7 @@ print("revlist : ",revlist)
 print("revNum revList : ",mainlist)
 
 
-
+//matrix
      from numpy import * 
 a = array([['Mon',18,20,22,17],['Tue',11,18,21,18],
    ['Wed',15,21,20,19],['Thu',11,20,22,21],
@@ -185,8 +197,75 @@ m_c = insert(m,[5],[[1],[2],[3],[4],[5],[6],[7]],1)
 print(m_c)
         
         
-        
-        mylist=[] 
+//dynamic matrix
+R = int(input("Enter the number of rows:"))
+C = int(input("Enter the number of columns:"))
+  
+# Initialize matrix
+matrix = []
+print("Enter the entries rowwise:")
+  
+# For user input
+for i in range(R):          # A for loop for row entries
+    a =[]
+    for j in range(C):      # A for loop for column entries
+         a.append(int(input()))
+    matrix.append(a)
+  
+# For printing the matrix
+for i in range(R):
+    for j in range(C):
+        print(matrix[i][j], end = " ")
+    print()
+    
+    
+ ///removing duplicate number from list
+    mylist=[] 
+mylistorg=[] 
+print('Enter List elemnets...') 
+print('Press zero(0) when you are done with entering data.') 
+while True: 
+ x=int(input('\nEnter a Number : ')) 
+ if x == 0: 
+ break; 
+ mylistorg.append(x) 
+ if x not in mylist: 
+ mylist.append(x) 
+ 
+print('\nYour original list :') 
+print(mylistorg) 
+print('\nYour list after removing duplicate values :') 
+print(mylist) 
+
+//Sample Input: [[1, 2], [3, 2, 5], [1], [5, 3, 6, 7]] 
+// Output: [2, 3, 1, 4] '''
+biglist=[] 
+minilist=[] 
+dreamlist=[] 
+print('Let us create list containing list of numbers...') 
+print('\nEnter list elements press zero when you are done.' ) 
+while True: 
+ x=int(input('\nEnter Number : ')) 
+ if x != 0 : 
+ minilist.append(x) 
+ else: 
+ biglist.append(minilist) 
+ minilist=[] 
+ ch=input('\nDo you want to go for another list? (Y/N) : ') 
+ if ch =='N' or ch=='n': 
+ break; 
+ elif ch not in ('N','n','Y','y'): 
+ print('Please enter correct choice :') 
+ 
+print('\nList of your minilists : ') 
+print(biglist) 
+for mlist in biglist: 
+ dreamlist.append(len(mlist)) 
+print('\nRequired list of minilists lengths : ') 
+print(dreamlist) 
+
+//take list and make in two tuple odd/even
+mylist=[] 
 oddtuple=() 
 eventuple=() 
 print('Enter List elemnets...') 
@@ -207,610 +286,372 @@ print(mylist)
 print('\nTuple of Even Numbers : ') 
 print(eventuple) 
 print('\nTuple of Odd Numbers : ') 
-print(oddtuple)
+print(oddtuple) 
+
+//mixed values seprate
+import msvcrt 
+def isfloat(num): 
+ try: 
+ float(num) 
+ return True 
+ except ValueError: 
+ return False 
+ 
+mixlist=[] 
+numbers=() 
+decimals=() 
+strings=() 
+print('Enter List elemnets...') 
+print('Press zero(0) when you are done with entering data.') 
+while True: 
+ print() 
+ x=(input('Enter any data : ')) 
+ if x == '0': 
+ break 
+ ''' if msvcrt.kbhit() and msvcrt.getch()[0] == 27 : 
+ break ''' 
+ mixlist.append(x) 
+for data in mixlist: 
+ if data.isdigit() : 
+ numbers = numbers + (data,) 
+ elif isfloat(data): 
+ decimals = decimals + (data,) 
+ else: 
+ strings = strings + (data,)
+print('\nList of Mix Datas : ') 
+print(mixlist) 
+print('\nTuple of Numbers : ') 
+print(numbers) 
+print('\nTuple of Floats : ') 
+print(decimals) 
+print('\nTuple of Strings : ') 
+print(strings) 
+
+
+//dictionary
+dicstud={} 
+while True: 
+ 
+ rno=int(input('\nEnter Roll Number : ')) 
+ m1=int(input('Enter Marks1 : ')) 
+ m2=int(input('Enter Marks2 : ')) 
+ m3=int(input('Enter Marks3 : ')) 
+ dicstud[rno]=[m1,m2,m3] 
+ ch=input('\nDo you want to add more students ? (Y/N) : ') 
+ 
+ if ch in ('N','n'): 
+ break; 
+ 
+print('\nRollNo\tMark1\tMark2\tMark3\tTotal\n') 
+for rno in dicstud: 
+ tot=dicstud[rno][0]+dicstud[rno][1]+dicstud[rno][2] 
+ 
+print(rno,'\t',dicstud[rno][0],'\t',dicstud[rno][1],'\t',dicstud[rno][2],
+'\t',tot) 
 
 
 
-
-Write a Python program to create a file of elements
- of any data type (mixed data type, i.e. some
- elements maybe of type int, some elements of type
- float and some elements of type string).
- Split this file into three file containing elements
- of same data type (i.e. 1st file of integers only,
- 2nd file of float only and 3rd file of strings only).
- Take input from the user to create the file. '''
-def isfloat(n):
- try:
- float(n)
- return True
- except ValueError:
- return False
-
-print('Enter any type of data into your file : ')
-print('Press \'END\' when you are done. ')
-f = open("test.txt",'w')
-fi = open("integer.txt",'w')
-fd = open("decimal.txt",'w')
+///word count in dic
+dicfreq={} 
+mystr=input('Enter any string : ') 
+for i in mystr: 
+ if i in dicfreq: 
+ dicfreq[i] += 1 
+ else: 
+ dicfreq[i] = 1 
+ 
+print(dicfreq) 
 
 
+//count duplicate in dict
+mylist=[] 
+print('Enter List elemnets...') 
+print('Press zero(0) when you are done with entering data.') 
+while True: 
+ print() 
+ x=(input('Enter a String : ')) 
+ if x == '0': 
+ break 
+ mylist.append(x) 
+ 
+print('\nYour entered list : ') 
+print(mylist) 
+dicitems={} 
+for item in mylist: 
+ if item in dicitems: 
+ dicitems[item] +=1 
+ else: 
+ dicitems[item] = 1 
+print('\nYour required list : ') 
+print(dicitems) 
 
 
-
-==========================================
-
-
-'''
-Name : Siddiqui Rubab
-Class/Div : FYMCA/B
-Semester : 2nd
-Roll No. : 102
-Subject : 204 - Python Programming Language
-Assignment : Practical Sheet - 4
-Problem Number : 1
-Problem Defintion : Write a Python program to create a file of
- numbers by taking input from the user and then
- display the content of the file. You can take
- input of non-zero numbers, with an appropriate
- prompt, from the user until the user enters a
- zero to create the file assuming that the numbers
- are non-zero. '''
-print('Enter Numbers into your file : ')
-print('Press zero(0) when you are done. ')
-f = open("test.txt",'w')
-while True:
- line=input()
- if line == '0':
- break;
- f.write(line)
- f.write('\n')
-
-f.close()
-f=open("test.txt",'r')
-print('Your File Data : ')
+//create file and show its contant
+print('Enter Numbers into your file : ') 
+print('Press zero(0) when you are done. ') 
+f = open("test.txt",'w') 
+while True: 
+ line=input() 
+ if line == '0': 
+ break; 
+ f.write(line) 
+ f.write('\n') 
+ 
+f.close() 
+f=open("test.txt",'r') 
+print('Your File Data : ') 
 print(f.read())
-''' OUTPUT :
-Enter Numbers into your file :
-Press zero(0) when you are done.
-10
-12
-20
-34
-9
-0
-Your File Data :
-10
-12
-20
-34
-9 '''
-'''
-Name : Siddiqui Rubab
-Class/Div : FYMCA/B
-Semester : 2nd
-Roll No. : 102
-Subject : 204 - Python Programming Language
-Assignment : Practical Sheet - 4
-Problem Number : 2
-Problem Defintion : Write a Python program to create a text file
- of multiple lines. Display the following:
- 1. Entire text file
- 2. 1st n lines of the text tile.
- 3. m lines starting from the nth line
- 4. number of words in each line '''
-print('Enter Data into your file : ')
-print('Write \'END\' when you are done. ')
-myfile = open("test.txt",'w')
-while True:
- line=input()
- if line == 'END' or line == 'end':
- break;
- myfile.write(line)
+
+
+///Write a Python program to create a text file 
+ of multiple lines. Display the following: 
+ 1. Entire text file 
+ 2. 1st n lines of the text tile. 
+ 3. m lines starting from the nth line 
+ 4. number of words in each line ''' 
+ 
+ 
+ print('Enter Data into your file : ') 
+print('Write \'END\' when you are done. ') 
+myfile = open("test.txt",'w') 
+while True: 
+ line=input() 
+ if line == 'END' or line == 'end': 
+ break; 
+ myfile.write(line) 
  myfile.write('\n')
-
-myfile.close()
-while True:
- myfile=open("test.txt",'r')
- print('\n1. Display entire text file .')
- print('2. 1st n lines of the text tile.')
- print('3. m lines starting from the nth line')
- print('4. number of words in each line')
- print('5. EXIT.')
- ch=int(input('\nEnter your choice : '))
-
- if ch == 1:
- print('\nYour File Data : \n')
- print(myfile.read())
- elif ch == 2:
- n=int(input('Enter Number of lines you want to read : '))
- print()
- for i in range(n):
- line = myfile.readline()
- print(line)
-
- elif ch == 3:
- m=int(input('Enter Line Number from where you want to read : '))
- n=int(input('Enter Line Number till where you want to read : '))
- #print(myfile[m:n])
- for i,line in enumerate(myfile):
- print()
- if i >= m-1 and i <= n-1:
- print(line)
-
- elif ch == 4:
- print()
- print('Line\t\tNo. of words\n')
- for i in myfile:
- wordslist=i.split()
- print(i.rstrip(),'\t',len(wordslist),'\n')
- wordslist=[]
- else:
- myfile.close()
+ 
+myfile.close() 
+while True: 
+ myfile=open("test.txt",'r') 
+ print('\n1. Display entire text file .') 
+ print('2. 1st n lines of the text tile.') 
+ print('3. m lines starting from the nth line') 
+ print('4. number of words in each line') 
+ print('5. EXIT.') 
+ ch=int(input('\nEnter your choice : ')) 
+ 
+ if ch == 1: 
+ print('\nYour File Data : \n') 
+ print(myfile.read()) 
+ elif ch == 2: 
+ n=int(input('Enter Number of lines you want to read : ')) 
+ print() 
+ for i in range(n): 
+ line = myfile.readline() 
+ print(line) 
+ 
+ elif ch == 3: 
+ m=int(input('Enter Line Number from where you want to read : ')) 
+ n=int(input('Enter Line Number till where you want to read : ')) 
+ #print(myfile[m:n]) 
+ for i,line in enumerate(myfile): 
+ print() 
+ if i >= m-1 and i <= n-1: 
+ print(line) 
+ 
+ elif ch == 4: 
+ print() 
+ print('Line\t\tNo. of words\n') 
+ for i in myfile: 
+ wordslist=i.split() 
+ print(i.rstrip(),'\t',len(wordslist),'\n') 
+ wordslist=[] 
+ else: 
+ myfile.close() 
  break;
-
-''' OUTPUT :
-Enter Data into your file :
-Write 'END' when you are done.
-Hello World!
-My name is Adiba
-This is my third line.
-I love my parents.
-I am an IT Student.
-This is my last line.
-end
-1. Display entire text file .
-2. 1st n lines of the text tile.
-3. m lines starting from the nth line
-4. number of words in each line
-5. EXIT.
-Enter your choice : 1
-Your File Data :
-Hello World!
-My name is Adiba
-This is my third line.
-I love my parents.
-I am an IT Student.
-This is my last line.
-1. Display entire text file .
-2. 1st n lines of the text tile.
-3. m lines starting from the nth line
-4. number of words in each line
-5. EXIT.
-Enter your choice : 2
-Enter Number of lines you want to read : 4
-Hello World!
-My name is Adiba
-This is my third line.
-I love my parents.
-1. Display entire text file .
-2. 1st n lines of the text tile.
-3. m lines starting from the nth line
-4. number of words in each line
-5. EXIT.
-Enter your choice : 3
-Enter Line Number from where you want to read : 2
-Enter Line Number till where you want to read : 4
-My name is Adiba
-This is my third line.
-I love my parents.
-1. Display entire text file .
-2. 1st n lines of the text tile.
-3. m lines starting from the nth line
-4. number of words in each line
-5. EXIT.
-Enter your choice : 4
-Line No. of words
-Hello World! 2
-My name is Adiba 4
-This is my third line. 5
-I love my parents. 4
-I am an IT Student. 5
-This is my last line. 5
-1. Display entire text file .
-2. 1st n lines of the text tile.
-3. m lines starting from the nth line
-4. number of words in each line
-5. EXIT.
-Enter your choice : 5 '''
-'''
-Name : Siddiqui Rubab
-Class/Div : FYMCA/B
-Semester : 2nd
-Roll No. : 102
-Subject : 204 - Python Programming Language
-Assignment : Practical Sheet - 4
-Problem Number : 3
-Problem Defintion : Write a Python program to create a file of numbers
- by taking input from the user. Split this file
- into two files where one file contains odd numbers,
- and the other file contains even numbers from the
-file.
- You can take input of non-zero numbers, with an
- appropriate prompt, from theuser until the user
-enters
- a zero to create the file assuming that the numbers
-are non-zero. '''
-print('Enter Numbers into your file : ')
-print('Press zero(0) when you are done. ')
-f = open("test.txt",'w')
-fo = open("odd.txt",'w')
-fe = open("even.txt",'w')
-while True:
- line=input()
- if line == '0':
- break;
- f.write(line)
- f.write('\n')
-f.close()
-f=open("test.txt",'r')
-for i in f:
- no = int(i)
- if no%2 == 0:
- fe.write(i)
- else:
- fo.write(i)
-f.close()
-fe.close()
+ 
+ 
+ 
+ 
+ ////craete file and seprate into two odd//even
+ print('Enter Numbers into your file : ') 
+print('Press zero(0) when you are done. ') 
+f = open("test.txt",'w') 
+fo = open("odd.txt",'w') 
+fe = open("even.txt",'w') 
+while True: 
+ line=input() 
+ if line == '0': 
+ break; 
+ f.write(line) 
+ f.write('\n') 
+f.close() 
+f=open("test.txt",'r') 
+for i in f: 
+ no = int(i) 
+ if no%2 == 0: 
+ fe.write(i) 
+ else: 
+ fo.write(i) 
+f.close() 
+fe.close() 
+fo.close() 
+print('\nYour File Data : \n') 
+f=open("test.txt",'r') 
+print(f.read()) 
+f.close() 
+print('\nEven File Data : \n') 
+fe = open("even.txt",'r') 
+print(fe.read()) 
+fe.close() 
+print('\nOdd File Data : \n') 
+fo = open("odd.txt",'r') 
+print(fo.read()) 
 fo.close()
-print('\nYour File Data : \n')
-f=open("test.txt",'r')
-print(f.read())
-f.close()
-print('\nEven File Data : \n')
-fe = open("even.txt",'r')
-print(fe.read())
-fe.close()
-print('\nOdd File Data : \n')
-fo = open("odd.txt",'r')
-print(fo.read())
-fo.close()
-''' OUTPUT :
-Enter Numbers into your file :
-Press zero(0) when you are done.
-23
-67
-44
-90
-12
-11
-9
-62
-11
-0
-Your File Data :
-23
-67
-44
-90
-12
-11
-9
-62
-11
-Even File Data :
-44
-90
-12
-62
-Odd File Data :
-23
-67
-11
-9
-11 '''
-'''
-Name : Siddiqui Rubab
-Class/Div : FYMCA/B
-Semester : 2nd
-Roll No. : 102
-Subject : 204 - Python Programming Language
-Assignment : Practical Sheet - 4
-Problem Number : 4
-Problem Defintion : Write a Python program to create a file of elements
- of any data type (mixed data type, i.e. some
- elements maybe of type int, some elements of type
- float and some elements of type string).
- Split this file into three file containing elements
- of same data type (i.e. 1st file of integers only,
- 2nd file of float only and 3rd file of strings only).
- Take input from the user to create the file. '''
-def isfloat(n):
- try:
- float(n)
- return True
- except ValueError:
- return False
 
-print('Enter any type of data into your file : ')
-print('Press \'END\' when you are done. ')
-f = open("test.txt",'w')
-fi = open("integer.txt",'w')
-fd = open("decimal.txt",'w')
-fs = open("string.txt",'w')
-while True:
- line=input()
- if line in ('END','end','End'):
- break;
- f.write(line)
- f.write('\n')
-f.close()
-f=open("test.txt",'r')
-for i in f:
 
- if i.isdecimal():
- fi.write(i)
- elif isfloat(i):
- fd.write(i)
- else:
- fs.write(i)
-
-f.close()
-fi.close()
-fd.close()
-fs.close()
-print('\nYour File Data : \n')
-f=open("test.txt",'r')
-print(f.read())
-f.close()
-print('\nInteger File Data : \n')
-fi = open("integer.txt",'r')
-print(fi.read())
-fi.close()
-print('\nFloat File Data : \n')
-fd = open("decimal.txt",'r')
-print(fd.read())
-fd.close()
-print('\nString File Data : \n')
-fs = open("string.txt",'r')
-print(fs.read())
-fs.close()
-'''OUTPUT :
-Enter any type of data into your file :
-Press 'END' when you are done.
-Adiba Siddiqui
-012
-89.76
-Smart City Surat
-2022
-2.3
-KVerma
-end
-Your File Data :
-Adiba Siddiqui
-012
-89.76
-Smart City Surat
-2022
-2.3
-KVerma
-Integer File Data :
-Float File Data :
-012
-89.76
-2022
-2.3
-String File Data :
-Adiba Siddiqui
-Smart City Surat
-KVerma '''
-'''
-Name : Siddiqui Rubab
-Class/Div : FYMCA/B
-Semester : 2nd
-Roll No. : 102
-Subject : 204 - Python Programming Language
-Assignment : Practical Sheet - 4
-Problem Number : 5
-Problem Defintion : Write a Python program to create a file containing
- student records where each record contain
- rollno and marks in 3 subjects separated by a comma
- (marks to be considered as list of 3 values).
- e.g. records of students: 1, [45, 40, 35], 2,
- [41, 38, 39], 3, [35, 30, 37] (each line of the
-file
- containing record of only 1 student).
- Prepare mark list in the following format:
- Roll No. Mark-1 Mark-2 Mark-3 Total
- 1 45 40 35 120 '''
-dicstud={}
-print('Enter any type of data into your file : ')
-studfile = open("student.txt",'w')
-while True:
-
- rno=int(input('\nEnter Roll Number : '))
- m1=int(input('Enter Marks1 : '))
- m2=int(input('Enter Marks2 : '))
- m3=int(input('Enter Marks3 : '))
- mlist=[m1,m2,m3]
- line=str(rno)+', ' + str(mlist)
- studfile.write(line)
- studfile.write('\n')
- print(line)
- mlist=[]
- ch=input('\nDo you want to add more students ? (Y/N) : ')
-
- if ch in ('N','n'):
- break;
-
-tot=0
+//// create file multipe and seprate datatype
+def isfloat(n): 
+ try: 
+ float(n) 
+ return True 
+ except ValueError: 
+ return False 
+ 
+print('Enter any type of data into your file : ') 
+print('Press \'END\' when you are done. ') 
+f = open("test.txt",'w') 
+fi = open("integer.txt",'w') 
+fd = open("decimal.txt",'w') 
+fs = open("string.txt",'w') 
+while True: 
+ line=input() 
+ if line in ('END','end','End'): 
+ break; 
+ f.write(line) 
+ f.write('\n') 
+f.close() 
+f=open("test.txt",'r') 
+for i in f: 
+ 
+ if i.isdecimal(): 
+ fi.write(i) 
+ elif isfloat(i): 
+ fd.write(i) 
+ else: 
+ fs.write(i) 
+ 
+f.close() 
+fi.close() 
+fd.close() 
+fs.close() 
+print('\nYour File Data : \n') 
+f=open("test.txt",'r') 
+print(f.read()) 
+f.close() 
+print('\nInteger File Data : \n') 
+fi = open("integer.txt",'r') 
+print(fi.read()) 
+fi.close() 
+print('\nFloat File Data : \n') 
+fd = open("decimal.txt",'r') 
+print(fd.read()) 
+fd.close() 
+print('\nString File Data : \n') 
+fs = open("string.txt",'r') 
+print(fs.read()) 
+fs.close() 
+ 
+ 
+ 
+ ///Write a Python program to create a file containing 
+ student records where each record contain 
+ rollno and marks in 3 subjects separated by a comma 
+ 
+ dicstud={} 
+print('Enter any type of data into your file : ') 
+studfile = open("student.txt",'w') 
+while True: 
+ 
+ rno=int(input('\nEnter Roll Number : ')) 
+ m1=int(input('Enter Marks1 : ')) 
+ m2=int(input('Enter Marks2 : ')) 
+ m3=int(input('Enter Marks3 : ')) 
+ mlist=[m1,m2,m3] 
+ line=str(rno)+', ' + str(mlist) 
+ studfile.write(line) 
+ studfile.write('\n') 
+ print(line) 
+ mlist=[] 
+ ch=input('\nDo you want to add more students ? (Y/N) : ') 
+ 
+ if ch in ('N','n'): 
+ break; 
+ 
+tot=0 
+studfile.close() 
+studfile = open("student.txt",'r') 
+print('\nRollNo\tMark1\tMark2\tMark3\tTotal\n') 
+for i in studfile: 
+ tuple1=i.partition('[') 
+ tuple2=tuple1[2].partition(']') 
+ markstr=tuple2[0] 
+ marklist=markstr.split(',') 
+ tot=int(marklist[0])+int(marklist[1])+int(marklist[2]) 
+ 
+print(i[0],'\t',marklist[0],'\t',marklist[1],'\t',marklist[2],'\t',tot) 
 studfile.close()
-studfile = open("student.txt",'r')
-print('\nRollNo\tMark1\tMark2\tMark3\tTotal\n')
-for i in studfile:
- tuple1=i.partition('[')
- tuple2=tuple1[2].partition(']')
- markstr=tuple2[0]
- marklist=markstr.split(',')
- tot=int(marklist[0])+int(marklist[1])+int(marklist[2])
 
-print(i[0],'\t',marklist[0],'\t',marklist[1],'\t',marklist[2],'\t',tot)
-studfile.close()
-''' OUTPUT :
-Enter any type of data into your file :
-Enter Roll Number : 1
-Enter Marks1 : 50
-Enter Marks2 : 20
-Enter Marks3 : 30
-1, [50, 20, 30]
-Do you want to add more students ? (Y/N) : y
-Enter Roll Number : 2
-Enter Marks1 : 80
-Enter Marks2 : 60
-Enter Marks3 : 70
-2, [80, 60, 70]
-Do you want to add more students ? (Y/N) : y
-Enter Roll Number : 3
-Enter Marks1 : 90
-Enter Marks2 : 70
-Enter Marks3 : 89
-3, [90, 70, 89]
-Do you want to add more students ? (Y/N) : y
-Enter Roll Number : 4
-Enter Marks1 : 89
-Enter Marks2 : 90
-Enter Marks3 : 67
-4, [89, 90, 67]
-Do you want to add more students ? (Y/N) : n
-RollNo Mark1 Mark2 Mark3 Total
-1 50 20 30 100
-2 80 60 70 210
-3 90 70 89 249
-4 89 90 67 246 '''
-'''
-Name : Siddiqui Rubab
-Class/Div : FYMCA/B
-Semester : 2nd
-Roll No. : 102
-Subject : 204 - Python Programming Language
-Assignment : Practical Sheet - 4
-Problem Number : 6
-Problem Defintion : Write a Python program to create a file of
- strings by taking input from the user and
- then create a dictionary containing each string
- along with their frequencies.
- (e.g. if the file contains ‘apple’,
- ‘banana’, ‘fig’, ‘apple’, ‘fig’, ‘banana’, ‘grapes’,
- ‘fig’, ‘grapes’, ‘apple’ then the output should
- be {'apple': 3, 'banana': 2, 'fig': 3, 'grapes': 2}.
-'''
-dicfreq={}
-print('Write String into your file : ')
-print('Press \'END\' when you are done. ')
-f = open("test.txt",'w')
-while True:
- line=input()
- if line in ('END','end','End'):
- break;
- f.write(line)
- f.write('\n')
-f.close()
-f=open("test.txt",'r')
-for line in f:
- templist=line.split()
- for word in templist:
- if word in dicfreq:
- dicfreq[word] += 1
- else:
- dicfreq[word] = 1
-f.close()
+
+
+
+
+/// Write a Python program to create a file of 
+ strings by taking input from the user and 
+ then create a dictionary containing each string 
+ along with their frequencies. 
+ (e.g. if the file contains ‘apple’, 
+ ‘banana’, ‘fig’, ‘apple’, ‘fig’, ‘banana’, ‘grapes’, 
+ ‘fig’, ‘grapes’, ‘apple’ then the output should 
+ be {'apple': 3, 'banana': 2, 'fig': 3, 'grapes': 2}. 
+ 
+dicfreq={} 
+print('Write String into your file : ') 
+print('Press \'END\' when you are done. ') 
+f = open("test.txt",'w') 
+while True: 
+ line=input() 
+ if line in ('END','end','End'): 
+ break; 
+ f.write(line) 
+ f.write('\n') 
+f.close() 
+f=open("test.txt",'r') 
+for line in f: 
+ templist=line.split() 
+ for word in templist: 
+ if word in dicfreq: 
+ dicfreq[word] += 1 
+ else: 
+ dicfreq[word] = 1 
+f.close() 
 print(dicfreq)
-'''OUTPUT :
-Write String into your file :
-Press 'END' when you are done.
-Hey World this is Adiba
-Adiba is smart.
-Adiba is world.
-this is Hey.
-end
-{'Hey': 1, 'World': 1, 'this': 2, 'is': 4, 'Adiba': 3, 'smart.': 1,
-'world.': 1, 'Hey.': 1} '''
-'''
-Name : Siddiqui Rubab
-Class/Div : FYMCA/B
-Semester : 2nd
-Roll No. : 102
-Subject : 204 - Python Programming Language
-Assignment : Practical Sheet - 4
-Problem Number : 7
-Problem Defintion : Write a Python program to create a text file
- of multiple lines. Take input of a word from the
- user and then display all the lines from the file
- containing this word along with the frequency of
- the word in that line. '''
-print('Write multiple lines into your file : ')
-print('Press \'END\' when you are done. ')
-f = open("test.txt",'w')
-cnt=0
-while True:
- line=input()
- if line in ('END','end','End'):
- break;
- f.write(line)
- f.write('\n')
-f.close()
-f=open("test.txt",'r')
-word=input('Enter the word to count frequency : ')
-print('Your file data : \n ')
-print('\nLine\tFrequency\n')
-for line in f:
- if word in line:
- print(line,"\t",line.count(word))
-''' OUTPUT :
-Write multiple lines into your file :
-Press 'END' when you are done.
-This is Adiba
-Adiba is a good girl
-I love my India.
-Adiba seems good. Adiba thinks alot
-She loves her parents.
-This is Adiba last line of Adiba file Adiba
-end
-Enter the word to count frequency : Adiba
-Your file data :
 
-Line Frequency
-This is Adiba
- 1
-Adiba is a good girl
- 1
-Adiba seems good. Adiba thinks alot
- 2
-This is Adiba last line of Adiba file Adiba
- 3 ''' 
-fs = open("string.txt",'w')
-while True:
- line=input()
- if line in ('END','end','End'):
- break;
- f.write(line)
- f.write('\n')
-f.close()
-f=open("test.txt",'r')
-for i in f:
 
- if i.isdecimal():
- fi.write(i)
- elif isfloat(i):
- fd.write(i)
- else:
- fs.write(i)
 
-f.close()
-fi.close()
-fd.close()
-fs.close()
-print('\nYour File Data : \n')
-f=open("test.txt",'r')
-print(f.read())
-f.close()
-print('\nInteger File Data : \n')
-fi = open("integer.txt",'r')
-print(fi.read())
-fi.close()
-print('\nFloat File Data : \n')
-fd = open("decimal.txt",'r')
-print(fd.read())
-fd.close()
-print('\nString File Data : \n')
-fs = open("string.txt",'r')
-print(fs.re
+///Write a Python program to create a text file 
+ of multiple lines. Take input of a word from the 
+ user and then display all the lines from the file 
+ containing this word along with the frequency of 
+ the word in that line. ''' 
+ 
+ 
+print('Write multiple lines into your file : ') 
+print('Press \'END\' when you are done. ') 
+f = open("test.txt",'w') 
+cnt=0 
+while True: 
+ line=input() 
+ if line in ('END','end','End'): 
+ break; 
+ f.write(line) 
+ f.write('\n') 
+f.close() 
+f=open("test.txt",'r') 
+word=input('Enter the word to count frequency : ') 
+print('Your file data : \n ') 
+print('\nLine\tFrequency\n') 
+for line in f: 
+ if word in line: 
+ print(line,"\t",line.count(word)) 
