@@ -33,6 +33,146 @@ while(1):
      
      
      
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     #stack###
+     class Stack:
+    stackList = []
+    top = -1
+
+    def __init__(self):
+        pass
+        #self.size = size
+
+    def push(self,val):
+        self.top += 1
+        self.stackList.append(val)
+    
+    def pop(self):
+        if(self.isUnderFlow()):
+            print("Stack is UnderFlow")
+            return
+        
+        print('Pop val : ',self.stackList[self.top])
+        del self.stackList[self.top]
+        self.top -= 1
+        
+    def peep(self):
+        if(self.isUnderFlow()):
+            print("Stack is UnderFlow")
+            return
+        print('Peep value : ',self.stackList[self.top])
+
+    def isUnderFlow(self):
+        if(self.top == -1):
+            return True
+        else:
+            return False
+        
+    def display(self):
+        if(self.isUnderFlow()):
+            print("Stack is UnderFlow")
+            return
+        
+        print("Stack Elements")
+        for i in self.stackList:
+            print(i)
+            
+    def __del__(self):
+        print("stack deleted")
+
+s1 = Stack()
+while(True):
+    print("-"*10)
+    print("1) Push")
+    print("2) Pop")
+    print("3) Peep")
+    print("4) Display")
+    print("5) Exit")
+    print("-"*10)
+    ch = input("Enter Your Choice : ")
+
+    if ch == '1':
+        val = input("Enter Value : ")
+        s1.push(val)
+    elif ch == '2':
+        s1.pop()
+    elif ch == '3':
+        s1.peep()
+    elif ch == '4':
+        s1.display()
+    elif ch == '5':
+        print("Exit_x_0")
+        break
+    else:
+        print("Wrong Input !!!")
+
+del s1
+
+
+
+
+
+========================
+oglist = []
+length = 0
+
+while(True):
+    val = input("Enter Number of 3-digit (0 to exit): ")
+    if(val == '0'):
+        break
+    c = 0
+        
+    try:
+        val = int(val)
+        for i in str(val):
+            c = c + 1
+        if(c == 3):
+            oglist.append(val)
+            length += 1
+        else:
+            print("val not in 3 digits")
+
+    except:
+        print("Not a  Number")
+
+#reverse list
+revlist = []
+for i in range(length-1,-1,-1):
+    revlist.append(oglist[i])
+
+#reverse Numberse in revList
+
+mainlist = []
+for val in revlist:
+    og = val
+    rem = 0
+    rev = 0
+
+    while(og != 0):
+        rem = og%10
+        rev = rev*10 + rem
+        og = int(og/10)
+        
+    mainlist.append(rev)
+
+print("og list : ",oglist)
+print("revlist : ",revlist)
+print("revNum revList : ",mainlist)
+
+
+
      from numpy import * 
 a = array([['Mon',18,20,22,17],['Tue',11,18,21,18],
    ['Wed',15,21,20,19],['Thu',11,20,22,21],
