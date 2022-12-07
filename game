@@ -1,3 +1,17 @@
+name=input("enter file name")
+filename=name+".txt"
+while(1):
+    txt=input("Enter text")
+    file=open(filename,"a")
+    file.write(txt)
+    if(txt=='exit'):
+     break
+    file.close()
+    
+    
+    
+    
+    
 # #getting file name
 # name=input("Enter name");
 # #second file for copy first file data
