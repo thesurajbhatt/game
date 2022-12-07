@@ -1,3 +1,56 @@
+num=int(input("Enter number"))
+
+def sumdigit(n):
+    sum=0
+    for digit in str(n):
+        sum+=digit
+    return sum
+
+def length(n):
+    num=str(n)
+    return len(num)
+
+#error in typecasting in sumdigit function
+n=length(num)
+s=sumdigit(num)
+print(n)
+print(s)
+
+
+
+--------------------------------
+2.
+list1 = [10, 21, 4, 45, 66, 93, 11]
+ 
+even_count, odd_count = 0, 0
+num = 0
+ 
+
+while(num < len(list1)):
+     
+    if list1[num] % 2 == 0:
+        even_count += 1
+    else:
+        odd_count += 1
+     
+    
+    num += 1
+     
+print("Even numbers in the list: ", even_count)
+print("Odd numbers in the list: ", odd_count)
+
+
+
+
+
+
+
+
+
+
+
+
+
 # #getting file name
 # name=input("Enter name");
 # #second file for copy first file data
